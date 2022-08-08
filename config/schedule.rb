@@ -33,7 +33,6 @@ env :PATH, ENV['PATH']
 
 set :output, 'log/cron_log.log'
 
-every 1.minute do
+every 1.day at: '12pm' do
   rake 'batch:get_new_flights'
 end
-
