@@ -22,7 +22,7 @@ RSpec.configure do |config|
     # and `failure_message` of custom matchers include text for helper methods
     # defined using `chain`, e.g.:
     #     be_bigger_than(2).and_smaller_than(4).description
-    #     # => "be bigger than 2 and smaller than 4"
+    #     # => \"be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -37,6 +37,19 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.before(:each) do
+    flights = {
+      status: 'success',
+      data:   {
+        count: 329,
+        next: "https://lldev.thespacedevs.com/2.0.0/launch/?limit=10&mode=api&offset=10",
+        previous: 'null',
+        results: []
+      }
+    }
+    stub_request(:get, "https://lldev.thespacedevs.com/2.0.0/launch/?limit=10&mode=api").
+      to_return(status: 200, body: flights.to_json)
+  end
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
