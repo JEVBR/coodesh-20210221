@@ -1,0 +1,10 @@
+
+
+GET https://lldev.thespacedevs.com/2.0.0/launch/?limit=10&mode=api
+###
+
+GET http://localhost:3000/
+###
+
+GET http://localhost:3000/api/v1/launchers
+###

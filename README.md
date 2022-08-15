@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Back-End Challenge 20210221
 
-Things you may want to cover:
+This is a Ruby on Rails app build to meet the needs of Coodesh Back-End Challenge 20210221
 
-* Ruby version
+# 1 - CRON JOB
 
-* System dependencies
+Using the "whenever" gem a job is sceduled daily (see scedule.rb)
 
-* Configuration
+This job accesses the API of thespacedevs.com fetching the latests 10 flights.
 
-* Database creation
+Flights are stored in the Launchers table of a Postgresql DB. The Unique id of each flight, status and flightdata is stored along with the time/date of the data being stored.
 
-* Database initialization
+A test for this job is in specs/flights_api_client_spec.rb
 
-* How to run the test suite
+# Model
 
-* Services (job queues, cache servers, search engines, etc.)
+Test for the model are in specs/models/launcher_spec.rb
 
-* Deployment instructions
+# API
 
-* ...
+Via an API ( at /api/v1/Launchers) the data in the DB can be accessed and manipulated
+
+Tests for the API are in specs/launchers_request_spec.rb
+
