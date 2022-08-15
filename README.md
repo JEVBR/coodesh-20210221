@@ -6,7 +6,7 @@ This is a Ruby on Rails app build to meet the needs of Coodesh Back-End Challeng
 
 # 1 - CRON JOB
 
-Using the "whenever" gem a job is sceduled daily (see scedule.rb)
+Using the "whenever" gem the job "rails batch:get_new_flights" is sceduled daily (see scedule.rb)
 
 This job accesses the API of thespacedevs.com fetching the latests 10 flights.
 
